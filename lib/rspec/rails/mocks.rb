@@ -88,6 +88,9 @@ EOM
           def @object.instance_of?(other)
             other == #{model_class}
           end
+          def @object.respond_to?(method_name)
+            attributes.keys.include?(method_name.to_s)
+          end
           def @object.class
             #{model_class}
           end
