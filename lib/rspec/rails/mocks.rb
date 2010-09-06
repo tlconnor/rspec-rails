@@ -89,7 +89,7 @@ EOM
             other == #{model_class}
           end
           def @object.respond_to?(method_name)
-            attributes.keys.include?(method_name.to_s)
+            #{model_class}.column_names.include?(method_name.to_s) || super
           end
           def @object.class
             #{model_class}
